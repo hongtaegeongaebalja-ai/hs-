@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>hs번역웹</title>
 
@@ -16,10 +16,11 @@
 }
 
 body{
-  background:#fff;
+  background:#ffffff;
   color:#111;
 }
 
+/* 상단 */
 header{
   width:100%;
   height:75px;
@@ -36,6 +37,7 @@ header{
   color:#00c73c;
 }
 
+/* 전체 */
 .wrap{
   width:100%;
   max-width:1400px;
@@ -55,6 +57,7 @@ header{
   font-size:18px;
 }
 
+/* 번역 영역 */
 .boxes{
   display:grid;
   grid-template-columns:1fr auto 1fr;
@@ -62,14 +65,16 @@ header{
   align-items:center;
 }
 
+/* 카드 */
 .box{
   border:2px solid #ddd;
   background:white;
   min-height:500px;
   padding:20px;
-  border-radius:18px;
+  border-radius:20px;
 }
 
+/* 언어 선택 */
 .top{
   margin-bottom:20px;
 }
@@ -81,10 +86,11 @@ select{
   background:#f8f8f8;
   font-size:17px;
   font-weight:bold;
-  border-radius:12px;
   outline:none;
+  border-radius:12px;
 }
 
+/* 텍스트 */
 textarea{
   width:100%;
   height:380px;
@@ -95,12 +101,14 @@ textarea{
   line-height:1.6;
 }
 
+/* 가운데 */
 .middle{
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
+/* 스왑 버튼 */
 .swap{
   width:90px;
   height:90px;
@@ -110,8 +118,14 @@ textarea{
   color:white;
   font-size:40px;
   cursor:pointer;
+  transition:0.2s;
 }
 
+.swap:hover{
+  transform:rotate(180deg);
+}
+
+/* 버튼 */
 .buttons{
   margin-top:25px;
   display:flex;
@@ -140,6 +154,14 @@ textarea{
   color:white;
 }
 
+/* 상태 */
+.status{
+  margin-top:20px;
+  color:#666;
+  font-size:16px;
+}
+
+/* 주소 */
 .site{
   margin-top:25px;
   border:2px solid #ddd;
@@ -150,12 +172,7 @@ textarea{
   word-break:break-all;
 }
 
-.status{
-  margin-top:15px;
-  font-size:15px;
-  color:#666;
-}
-
+/* 모바일 */
 @media(max-width:1000px){
 
   .boxes{
@@ -228,6 +245,7 @@ hs번역웹
 <div class="top">
 
 <select id="from">
+
 <option value="ko">🇰🇷 한국어</option>
 <option value="en">🇺🇸 영어</option>
 <option value="ja">🇯🇵 일본어</option>
@@ -236,8 +254,7 @@ hs번역웹
 <option value="de">🇩🇪 독일어</option>
 <option value="es">🇪🇸 스페인어</option>
 <option value="ru">🇷🇺 러시아어</option>
-<option value="it">🇮🇹 이탈리아어</option>
-<option value="th">🇹🇭 태국어</option>
+
 </select>
 
 </div>
@@ -267,6 +284,7 @@ onclick="swapLang()"
 <div class="top">
 
 <select id="to">
+
 <option value="en">🇺🇸 영어</option>
 <option value="ko">🇰🇷 한국어</option>
 <option value="ja">🇯🇵 일본어</option>
@@ -275,8 +293,7 @@ onclick="swapLang()"
 <option value="de">🇩🇪 독일어</option>
 <option value="es">🇪🇸 스페인어</option>
 <option value="ru">🇷🇺 러시아어</option>
-<option value="it">🇮🇹 이탈리아어</option>
-<option value="th">🇹🇭 태국어</option>
+
 </select>
 
 </div>
@@ -291,6 +308,7 @@ placeholder="번역 결과가 표시됩니다"
 
 </div>
 
+<!-- 버튼 -->
 <div class="buttons">
 
 <button
@@ -309,10 +327,15 @@ onclick="copyText()"
 
 </div>
 
-<div class="status" id="status">
+<!-- 상태 -->
+<div
+class="status"
+id="status"
+>
 준비 완료
 </div>
 
+<!-- 주소 -->
 <div class="site">
 
 🌐 내 웹사이트 주소<br><br>
@@ -325,47 +348,7 @@ https://hongtaegeongaebalja.github.io/hs-/
 
 <script>
 
-// 무료 서버들이 자꾸 막혀서
-// 서버 없이 동작하는 방식으로 수정
-
-const miniDictionary = {
-
-  "안녕":"hello",
-  "사랑해":"i love you",
-  "감사합니다":"thank you",
-  "고마워":"thanks",
-  "이름":"name",
-  "학교":"school",
-  "학생":"student",
-  "음식":"food",
-  "물":"water",
-  "한국":"korea",
-  "일본":"japan",
-  "중국":"china",
-  "영어":"english",
-  "고양이":"cat",
-  "강아지":"dog",
-  "사과":"apple",
-  "바나나":"banana",
-  "오늘":"today",
-  "내일":"tomorrow",
-
-  "hello":"안녕",
-  "thank you":"감사합니다",
-  "thanks":"고마워",
-  "school":"학교",
-  "student":"학생",
-  "food":"음식",
-  "water":"물",
-  "cat":"고양이",
-  "dog":"강아지",
-  "apple":"사과",
-  "banana":"바나나",
-  "today":"오늘",
-  "tomorrow":"내일"
-
-};
-
+// 언어 변경
 function swapLang(){
 
   const from =
@@ -391,11 +374,11 @@ function swapLang(){
   output.value = tempText;
 }
 
-function translateText(){
+// 번역
+async function translateText(){
 
-  const input =
-    document.getElementById("input").value
-    .trim();
+  const text =
+    document.getElementById("input").value.trim();
 
   const output =
     document.getElementById("output");
@@ -403,44 +386,104 @@ function translateText(){
   const status =
     document.getElementById("status");
 
-  if(input === ""){
+  if(text === ""){
 
     alert("내용 입력");
     return;
   }
 
-  status.innerText = "번역중...";
+  const from =
+    document.getElementById("from").value;
 
-  const lower =
-    input.toLowerCase();
+  const to =
+    document.getElementById("to").value;
 
-  if(miniDictionary[lower]){
+  output.value = "번역중...";
+  status.innerText =
+    "번역 서버 연결중...";
 
-    output.value =
-      miniDictionary[lower];
+  // 여러 서버 자동 시도
+  const servers = [
 
-  }else{
+    "https://translate.argosopentech.com/translate",
 
-    output.value =
-      "번역 데이터 없음\n\n입력한 내용:\n" + input;
+    "https://translate.astian.org/translate",
+
+    "https://libretranslate.de/translate"
+
+  ];
+
+  for(let i=0;i<servers.length;i++){
+
+    try{
+
+      const response = await fetch(
+        servers[i],
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":"application/json"
+          },
+
+          body:JSON.stringify({
+
+            q:text,
+            source:from,
+            target:to,
+            format:"text"
+
+          })
+        }
+      );
+
+      if(!response.ok){
+
+        continue;
+      }
+
+      const data =
+        await response.json();
+
+      if(data.translatedText){
+
+        output.value =
+          data.translatedText;
+
+        status.innerText =
+          "번역 완료";
+
+        return;
+      }
+
+    }catch(error){
+
+      console.log(error);
+    }
   }
 
+  output.value =
+    "현재 번역 서버 사용량 많음";
+
   status.innerText =
-    "번역 완료";
+    "잠시 후 다시 시도";
 }
 
+// 복사
 function copyText(){
 
   const text =
-    document.getElementById("output").value;
+    document.getElementById("output");
 
-  if(text.trim() === ""){
+  if(text.value.trim() === ""){
 
     alert("복사할 내용 없음");
     return;
   }
 
-  navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(
+    text.value
+  );
 
   alert("복사 완료");
 }
