@@ -34,7 +34,7 @@ header{
 .logo{
   font-size:32px;
   font-weight:900;
-  color:#00c73c;
+  color:#111;
 }
 
 /* 전체 */
@@ -114,7 +114,7 @@ textarea{
   height:90px;
   border:none;
   border-radius:50%;
-  background:#00c73c;
+  background:#111;
   color:white;
   font-size:40px;
   cursor:pointer;
@@ -145,12 +145,12 @@ textarea{
 }
 
 .translate{
-  background:#00c73c;
+  background:#111;
   color:white;
 }
 
 .copy{
-  background:#111;
+  background:#333;
   color:white;
 }
 
@@ -170,6 +170,30 @@ textarea{
   border-radius:14px;
   font-size:16px;
   word-break:break-all;
+}
+
+/* API */
+.api-box{
+  margin-top:25px;
+  border:2px solid #ddd;
+  background:#fff;
+  padding:20px;
+  border-radius:14px;
+}
+
+.api-title{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.api-input{
+  width:100%;
+  padding:16px;
+  border:2px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
 }
 
 /* 모바일 */
@@ -335,6 +359,22 @@ id="status"
 준비 완료
 </div>
 
+<!-- API -->
+<div class="api-box">
+
+<div class="api-title">
+
+</div>
+
+<input
+type="text"
+class="api-input"
+id="apiKey"
+placeholder="여기에 API KEY 입력"
+/>
+
+</div>
+
 <!-- 주소 -->
 <div class="site">
 
@@ -386,6 +426,9 @@ async function translateText(){
   const status =
     document.getElementById("status");
 
+  const apiKey =
+    document.getElementById("apiKey").value;
+
   if(text === ""){
 
     alert("내용 입력");
@@ -402,7 +445,9 @@ async function translateText(){
   status.innerText =
     "번역 서버 연결중...";
 
-  // 여러 서버 자동 시도
+  // API 키 자리
+  console.log("API KEY:", apiKey);
+
   const servers = [
 
     "https://translate.argosopentech.com/translate",
