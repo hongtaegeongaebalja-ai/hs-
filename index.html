@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>hs번역웹</title>
 
@@ -16,30 +16,24 @@
 }
 
 body{
-  background:#ffffff;
+  background:#fff;
   color:#111;
 }
 
-/* 상단 */
 header{
-  width:100%;
   height:75px;
-  border-bottom:2px solid #e5e5e5;
+  border-bottom:2px solid #eee;
   display:flex;
   align-items:center;
   padding:0 20px;
-  background:white;
 }
 
 .logo{
   font-size:32px;
   font-weight:900;
-  color:#111;
 }
 
-/* 전체 */
 .wrap{
-  width:100%;
   max-width:1400px;
   margin:auto;
   padding:25px;
@@ -54,10 +48,8 @@ header{
 .sub{
   color:#666;
   margin-bottom:30px;
-  font-size:18px;
 }
 
-/* 번역 영역 */
 .boxes{
   display:grid;
   grid-template-columns:1fr auto 1fr;
@@ -65,50 +57,39 @@ header{
   align-items:center;
 }
 
-/* 카드 */
 .box{
   border:2px solid #ddd;
-  background:white;
-  min-height:500px;
-  padding:20px;
   border-radius:20px;
-}
-
-/* 언어 선택 */
-.top{
-  margin-bottom:20px;
+  padding:20px;
+  min-height:500px;
 }
 
 select{
   width:100%;
   padding:16px;
   border:2px solid #ddd;
+  border-radius:12px;
   background:#f8f8f8;
   font-size:17px;
   font-weight:bold;
-  outline:none;
-  border-radius:12px;
+  margin-bottom:20px;
 }
 
-/* 텍스트 */
 textarea{
   width:100%;
-  height:380px;
+  height:360px;
   border:none;
   outline:none;
   resize:none;
   font-size:22px;
-  line-height:1.6;
 }
 
-/* 가운데 */
 .middle{
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
-/* 스왑 버튼 */
 .swap{
   width:90px;
   height:90px;
@@ -116,16 +97,10 @@ textarea{
   border-radius:50%;
   background:#111;
   color:white;
-  font-size:40px;
+  font-size:38px;
   cursor:pointer;
-  transition:0.2s;
 }
 
-.swap:hover{
-  transform:rotate(180deg);
-}
-
-/* 버튼 */
 .buttons{
   margin-top:25px;
   display:flex;
@@ -135,7 +110,6 @@ textarea{
 
 .btn{
   flex:1;
-  min-width:200px;
   padding:18px;
   border:none;
   border-radius:14px;
@@ -154,49 +128,11 @@ textarea{
   color:white;
 }
 
-/* 상태 */
 .status{
   margin-top:20px;
   color:#666;
-  font-size:16px;
 }
 
-/* 주소 */
-.site{
-  margin-top:25px;
-  border:2px solid #ddd;
-  background:#f8f8f8;
-  padding:18px;
-  border-radius:14px;
-  font-size:16px;
-  word-break:break-all;
-}
-
-/* API */
-.api-box{
-  margin-top:25px;
-  border:2px solid #ddd;
-  background:#fff;
-  padding:20px;
-  border-radius:14px;
-}
-
-.api-title{
-  font-size:20px;
-  font-weight:900;
-  margin-bottom:15px;
-}
-
-.api-input{
-  width:100%;
-  padding:16px;
-  border:2px solid #ddd;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
-}
-
-/* 모바일 */
 @media(max-width:1000px){
 
   .boxes{
@@ -209,32 +145,6 @@ textarea{
 
   textarea{
     height:250px;
-  }
-}
-
-@media(max-width:600px){
-
-  .wrap{
-    padding:15px;
-  }
-
-  .title{
-    font-size:35px;
-  }
-
-  textarea{
-    font-size:18px;
-  }
-
-  .btn{
-    width:100%;
-    flex:none;
-  }
-
-  .swap{
-    width:75px;
-    height:75px;
-    font-size:30px;
   }
 }
 
@@ -258,30 +168,22 @@ hs번역웹
 </div>
 
 <div class="sub">
-무료 AI 번역 웹사이트
+무료 번역 웹사이트
 </div>
 
 <div class="boxes">
 
-<!-- 입력 -->
 <div class="box">
-
-<div class="top">
 
 <select id="from">
 
-<option value="ko">🇰🇷 한국어</option>
-<option value="en">🇺🇸 영어</option>
-<option value="ja">🇯🇵 일본어</option>
-<option value="zh">🇨🇳 중국어</option>
-<option value="fr">🇫🇷 프랑스어</option>
-<option value="de">🇩🇪 독일어</option>
-<option value="es">🇪🇸 스페인어</option>
-<option value="ru">🇷🇺 러시아어</option>
+<option value="ko">한국어</option>
+<option value="en">영어</option>
+<option value="ja">일본어</option>
+<option value="zh-CN">중국어</option>
+<option value="fr">프랑스어</option>
 
 </select>
-
-</div>
 
 <textarea
 id="input"
@@ -290,7 +192,6 @@ placeholder="번역할 내용을 입력하세요"
 
 </div>
 
-<!-- 가운데 -->
 <div class="middle">
 
 <button
@@ -302,37 +203,28 @@ onclick="swapLang()"
 
 </div>
 
-<!-- 결과 -->
 <div class="box">
-
-<div class="top">
 
 <select id="to">
 
-<option value="en">🇺🇸 영어</option>
-<option value="ko">🇰🇷 한국어</option>
-<option value="ja">🇯🇵 일본어</option>
-<option value="zh">🇨🇳 중국어</option>
-<option value="fr">🇫🇷 프랑스어</option>
-<option value="de">🇩🇪 독일어</option>
-<option value="es">🇪🇸 스페인어</option>
-<option value="ru">🇷🇺 러시아어</option>
+<option value="en">영어</option>
+<option value="ko">한국어</option>
+<option value="ja">일본어</option>
+<option value="zh-CN">중국어</option>
+<option value="fr">프랑스어</option>
 
 </select>
-
-</div>
 
 <textarea
 id="output"
 readonly
-placeholder="번역 결과가 표시됩니다"
+placeholder="번역 결과"
 ></textarea>
 
 </div>
 
 </div>
 
-<!-- 버튼 -->
 <div class="buttons">
 
 <button
@@ -351,7 +243,6 @@ onclick="copyText()"
 
 </div>
 
-<!-- 상태 -->
 <div
 class="status"
 id="status"
@@ -359,36 +250,10 @@ id="status"
 준비 완료
 </div>
 
-<!-- API -->
-<div class="api-box">
-
-<div class="api-title">
-
-</div>
-
-<input
-type="text"
-class="api-input"
-id="apiKey"
-placeholder="여기에 API KEY 입력"
-/>
-
-</div>
-
-<!-- 주소 -->
-<div class="site">
-
-🌐 내 웹사이트 주소<br><br>
-
-https://hongtaegeongaebalja.github.io/hs-/
-
-</div>
-
 </div>
 
 <script>
 
-// 언어 변경
 function swapLang(){
 
   const from =
@@ -397,28 +262,16 @@ function swapLang(){
   const to =
     document.getElementById("to");
 
-  const temp = from.value;
+  let temp = from.value;
 
   from.value = to.value;
   to.value = temp;
-
-  const input =
-    document.getElementById("input");
-
-  const output =
-    document.getElementById("output");
-
-  const tempText = input.value;
-
-  input.value = output.value;
-  output.value = tempText;
 }
 
-// 번역
 async function translateText(){
 
   const text =
-    document.getElementById("input").value.trim();
+    document.getElementById("input").value;
 
   const output =
     document.getElementById("output");
@@ -426,10 +279,7 @@ async function translateText(){
   const status =
     document.getElementById("status");
 
-  const apiKey =
-    document.getElementById("apiKey").value;
-
-  if(text === ""){
+  if(text.trim() === ""){
 
     alert("내용 입력");
     return;
@@ -442,89 +292,46 @@ async function translateText(){
     document.getElementById("to").value;
 
   output.value = "번역중...";
-  status.innerText =
-    "번역 서버 연결중...";
+  status.innerText = "번역중...";
 
-  // API 키 자리
-  console.log("API KEY:", apiKey);
+  try{
 
-  const servers = [
+    const url =
+      "https://api.mymemory.translated.net/get?q="
+      + encodeURIComponent(text)
+      + "&langpair="
+      + from
+      + "|"
+      + to;
 
-    "https://translate.argosopentech.com/translate",
+    const response =
+      await fetch(url);
 
-    "https://translate.astian.org/translate",
+    const data =
+      await response.json();
 
-    "https://libretranslate.de/translate"
+    output.value =
+      data.responseData.translatedText;
 
-  ];
+    status.innerText =
+      "번역 완료";
 
-  for(let i=0;i<servers.length;i++){
+  }catch(error){
 
-    try{
+    console.log(error);
 
-      const response = await fetch(
-        servers[i],
-        {
-          method:"POST",
+    output.value =
+      "번역 실패";
 
-          headers:{
-            "Content-Type":"application/json"
-          },
-
-          body:JSON.stringify({
-
-            q:text,
-            source:from,
-            target:to,
-            format:"text"
-
-          })
-        }
-      );
-
-      if(!response.ok){
-
-        continue;
-      }
-
-      const data =
-        await response.json();
-
-      if(data.translatedText){
-
-        output.value =
-          data.translatedText;
-
-        status.innerText =
-          "번역 완료";
-
-        return;
-      }
-
-    }catch(error){
-
-      console.log(error);
-    }
+    status.innerText =
+      "서버 오류";
   }
-
-  output.value =
-    "현재 번역 서버 사용량 많음";
-
-  status.innerText =
-    "잠시 후 다시 시도";
 }
 
-// 복사
 function copyText(){
 
   const text =
     document.getElementById("output");
-
-  if(text.value.trim() === ""){
-
-    alert("복사할 내용 없음");
-    return;
-  }
 
   navigator.clipboard.writeText(
     text.value
