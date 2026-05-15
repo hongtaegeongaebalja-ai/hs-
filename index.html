@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>hs번역웹</title>
+<!-- 구글 검색 제목 -->
+<title>hs번역웹 - 무료 AI 번역 웹사이트</title>
+
+<!-- 구글 검색 설명 -->
+<meta
+name="description"
+content="hs번역웹은 무료로 다양한 언어를 번역할 수 있는 AI 번역 웹사이트입니다. 한국어, 영어, 일본어, 중국어 등 다양한 언어를 빠르게 번역할 수 있습니다."
+>
+
+<!-- 검색 키워드 -->
+<meta
+name="keywords"
+content="번역, AI번역, 번역웹, 영어번역, 일본어번역, 중국어번역, 무료번역, hs번역웹"
+>
+
+<meta name="robots" content="index, follow">
 
 <style>
 
@@ -128,6 +144,31 @@ textarea{
   color:white;
 }
 
+.info{
+  margin-top:30px;
+  border:2px solid #ddd;
+  border-radius:20px;
+  padding:25px;
+  line-height:1.8;
+}
+
+.info h2{
+  margin-bottom:15px;
+}
+
+.open-btn{
+  margin-top:20px;
+  width:100%;
+  padding:20px;
+  border:none;
+  border-radius:16px;
+  background:#111;
+  color:white;
+  font-size:20px;
+  font-weight:900;
+  cursor:pointer;
+}
+
 .status{
   margin-top:20px;
   color:#666;
@@ -149,6 +190,7 @@ textarea{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -168,11 +210,12 @@ hs번역웹
 </div>
 
 <div class="sub">
-무료 번역 웹사이트
+무료 AI 번역 웹사이트
 </div>
 
 <div class="boxes">
 
+<!-- 입력 -->
 <div class="box">
 
 <select id="from">
@@ -192,6 +235,7 @@ placeholder="번역할 내용을 입력하세요"
 
 </div>
 
+<!-- 가운데 -->
 <div class="middle">
 
 <button
@@ -203,6 +247,7 @@ onclick="swapLang()"
 
 </div>
 
+<!-- 결과 -->
 <div class="box">
 
 <select id="to">
@@ -248,6 +293,45 @@ class="status"
 id="status"
 >
 준비 완료
+</div>
+
+<!-- 광고 심사용 정보 -->
+<div class="info">
+
+<h2>hs번역웹 소개</h2>
+
+<p>
+
+hs번역웹은 다양한 언어를 쉽고 빠르게 번역할 수 있는 무료 AI 번역 웹사이트입니다.
+한국어, 영어, 일본어, 중국어 등 여러 언어를 지원하며 모바일과 태블릿, PC 환경에서 모두 사용할 수 있습니다.
+
+</p>
+
+<br>
+
+<p>
+
+본 웹사이트는 사용자의 편리한 번역 기능 제공을 목적으로 제작되었습니다.
+불법 콘텐츠 및 유해한 기능을 제공하지 않으며 누구나 자유롭게 사용할 수 있습니다.
+
+</p>
+
+<br>
+
+<p>
+
+문의:
+hongtaegeongaebalja@gmail.com
+
+</p>
+
+<button
+class="open-btn"
+onclick="openInfoPage()"
+>
+사이트 정보 보기
+</button>
+
 </div>
 
 </div>
@@ -338,6 +422,69 @@ function copyText(){
   );
 
   alert("복사 완료");
+}
+
+/* 새 페이지 */
+function openInfoPage(){
+
+  const newWindow =
+    window.open("", "_blank");
+
+  newWindow.document.write(`
+
+  <html>
+
+  <head>
+
+  <title>hs번역웹 정보</title>
+
+  <style>
+
+  body{
+    font-family:Arial;
+    padding:40px;
+    line-height:1.8;
+    background:#fff;
+    color:#111;
+  }
+
+  h1{
+    margin-bottom:20px;
+  }
+
+  </style>
+
+  </head>
+
+  <body>
+
+  <h1>hs번역웹</h1>
+
+  <p>
+
+  hs번역웹은 무료 AI 번역 서비스를 제공하는 웹사이트입니다.
+
+  </p>
+
+  <p>
+
+  다양한 언어 번역 기능을 제공하며
+  모바일, 태블릿, PC 환경을 지원합니다.
+
+  </p>
+
+  <p>
+
+  광고 및 사이트 문의:
+  hongtaegeongaebalja@gmail.com
+
+  </p>
+
+  </body>
+
+  </html>
+
+  `);
 }
 
 </script>
