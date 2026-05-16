@@ -3,7 +3,12 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="Sfwy_KdYhwoFgwbA5ESo4PlS7DjZKLC49b6xh-2kD8s" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="google-site-verification"
+content="Sfwy_KdYhwoFgwbA5ESo4PlS7DjZKLC49b6xh-2kD8s"
+/>
 
 <title>hs번역웹 - 무료 AI 번역 웹사이트</title>
 
@@ -75,6 +80,7 @@ header{
   border-radius:20px;
   padding:20px;
   min-height:500px;
+  background:#fff;
 }
 
 select{
@@ -95,6 +101,7 @@ textarea{
   outline:none;
   resize:none;
   font-size:22px;
+  background:#fff;
 }
 
 .middle{
@@ -112,6 +119,11 @@ textarea{
   color:white;
   font-size:38px;
   cursor:pointer;
+  transition:0.2s;
+}
+
+.swap:hover{
+  transform:scale(1.05);
 }
 
 .buttons{
@@ -129,6 +141,11 @@ textarea{
   font-size:20px;
   font-weight:900;
   cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover{
+  opacity:0.9;
 }
 
 .translate{
@@ -141,34 +158,42 @@ textarea{
   color:white;
 }
 
-.info{
-  margin-top:30px;
-  border:2px solid #ddd;
-  border-radius:20px;
-  padding:25px;
-  line-height:1.8;
-}
-
-.info h2{
-  margin-bottom:15px;
-}
-
-.open-btn{
-  margin-top:20px;
-  width:100%;
-  padding:20px;
-  border:none;
-  border-radius:16px;
-  background:#111;
-  color:white;
-  font-size:20px;
-  font-weight:900;
-  cursor:pointer;
-}
-
 .status{
   margin-top:20px;
   color:#666;
+  font-size:16px;
+}
+
+.info{
+  margin-top:35px;
+  border:2px solid #ddd;
+  border-radius:20px;
+  padding:30px;
+  line-height:1.9;
+  background:#fafafa;
+}
+
+.info h2{
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+.info p{
+  font-size:18px;
+  color:#333;
+}
+
+.email{
+  font-weight:900;
+  font-size:20px;
+  color:#111;
+}
+
+.footer{
+  margin-top:40px;
+  text-align:center;
+  color:#777;
+  font-size:15px;
 }
 
 @media(max-width:1000px){
@@ -202,6 +227,10 @@ textarea{
 
   .btn{
     width:100%;
+  }
+
+  .info h2{
+    font-size:28px;
   }
 
 }
@@ -312,7 +341,7 @@ id="status"
 준비 완료
 </div>
 
-<!-- 정보 -->
+<!-- 사이트 소개 -->
 <div class="info">
 
 <h2>
@@ -349,19 +378,18 @@ hs번역웹은 지속적인 업데이트를 통해
 
 <br>
 
-<p>
+<p class="email">
 
 광고 문의 및 사이트 문의:
 hongtaegeongaebalja@gmail.com
 
 </p>
 
-<button
-class="open-btn"
-onclick="openInfoPage()"
->
-사이트 정보 보기
-</button>
+</div>
+
+<div class="footer">
+
+© hs번역웹
 
 </div>
 
@@ -396,7 +424,7 @@ async function translateText(){
 
   if(text.trim() === ""){
 
-    alert("내용 입력");
+    alert("번역할 내용을 입력하세요");
     return;
   }
 
@@ -436,7 +464,7 @@ async function translateText(){
     console.log(error);
 
     output.value =
-      "번역 실패";
+      "일시적인 오류가 발생했습니다.";
 
     status.innerText =
       "서버 오류";
@@ -453,162 +481,6 @@ function copyText(){
   );
 
   alert("복사 완료");
-}
-
-/* 새 페이지 */
-function openInfoPage(){
-
-  const newWindow =
-    window.open("", "_blank");
-
-  newWindow.document.write(`
-
-  <html>
-
-  <head>
-
-  <meta charset="UTF-8">
-
-  <title>hs번역웹 정보</title>
-
-  <style>
-
-  *{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-  }
-
-  body{
-    margin:0;
-    padding:40px;
-    background:#fff;
-    color:#111;
-    line-height:1.9;
-  }
-
-  .wrap{
-    max-width:1000px;
-    margin:auto;
-  }
-
-  h1{
-    font-size:50px;
-    margin-bottom:25px;
-  }
-
-  h2{
-    margin-bottom:15px;
-    font-size:30px;
-  }
-
-  .card{
-    border:2px solid #ddd;
-    border-radius:20px;
-    padding:30px;
-    margin-bottom:25px;
-    background:#fafafa;
-  }
-
-  p{
-    font-size:18px;
-    color:#333;
-  }
-
-  .email{
-    font-size:22px;
-    font-weight:900;
-  }
-
-  .footer{
-    margin-top:40px;
-    text-align:center;
-    color:#777;
-    font-size:15px;
-  }
-
-  </style>
-
-  </head>
-
-  <body>
-
-  <div class="wrap">
-
-  <h1>hs번역웹</h1>
-
-  <div class="card">
-
-  <h2>사이트 소개</h2>
-
-  <p>
-
-  hs번역웹은 다양한 언어를 쉽고 빠르게 번역할 수 있는 무료 AI 번역 웹사이트입니다.
-  모바일, 태블릿, PC 환경을 지원합니다.
-
-  </p>
-
-  </div>
-
-  <div class="card">
-
-  <h2>서비스 특징</h2>
-
-  <p>
-
-  • 다양한 언어 번역 지원<br>
-  • 모바일 및 태블릿 반응형 지원<br>
-  • 회원가입 없이 사용 가능<br>
-  • 빠른 번역 기능 제공<br>
-  • 지속적인 업데이트 예정
-
-  </p>
-
-  </div>
-
-  <div class="card">
-
-  <h2>서비스 안내</h2>
-
-  <p>
-
-  본 웹사이트는 사용자 편의를 위한 번역 기능 제공을 목적으로 제작되었습니다.
-  누구나 자유롭게 사용할 수 있습니다.
-
-  </p>
-
-  </div>
-
-  <div class="card">
-
-  <h2>광고 및 문의</h2>
-
-  <p class="email">
-
-  hongtaegeongaebalja@gmail.com
-
-  </p>
-
-  <p>
-
-  사이트 문의 및 광고 문의는 위 이메일로 연락해주세요.
-
-  </p>
-
-  </div>
-
-  <div class="footer">
-
-  © hs번역웹
-
-  </div>
-
-  </div>
-
-  </body>
-
-  </html>
-
-  `);
 }
 
 </script>
