@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 
 <meta charset="UTF-8">
@@ -43,7 +45,6 @@ content="번역, AI번역, 무료번역, 영어번역, 일본어번역, 중국�
 
 <meta name="robots" content="index, follow">
 
-
 <style>
 
 *{
@@ -66,32 +67,36 @@ body.dark{
 
 header{
   height:75px;
-  border-bottom:2px solid #eee;
+  border-bottom:1px solid #eee;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:0 20px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 body.dark header{
+  background:#111;
   border-color:#333;
 }
 
 .logo{
-  font-size:32px;
+  font-size:30px;
   font-weight:900;
 }
 
 .menu{
   display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+  gap:10px;
 }
 
 .menu button{
-  padding:10px 16px;
+  padding:10px 14px;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
   background:#111;
   color:white;
   cursor:pointer;
@@ -103,20 +108,20 @@ body.dark .menu button{
 }
 
 .wrap{
-  max-width:1400px;
+  max-width:1200px;
   margin:auto;
-  padding:25px;
+  padding:20px;
 }
 
 .title{
-  font-size:50px;
+  font-size:48px;
   font-weight:900;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .sub{
   color:#666;
-  margin-bottom:30px;
+  margin-bottom:25px;
 }
 
 body.dark .sub{
@@ -126,15 +131,14 @@ body.dark .sub{
 .boxes{
   display:grid;
   grid-template-columns:1fr auto 1fr;
-  gap:20px;
+  gap:18px;
   align-items:center;
 }
 
 .box{
   border:2px solid #ddd;
-  border-radius:20px;
+  border-radius:24px;
   padding:20px;
-  min-height:500px;
   background:#fff;
 }
 
@@ -145,22 +149,28 @@ body.dark .box{
 
 select{
   width:100%;
-  padding:16px;
+  padding:15px;
   border:2px solid #ddd;
-  border-radius:12px;
+  border-radius:14px;
   background:#f8f8f8;
-  font-size:17px;
+  font-size:16px;
   font-weight:bold;
-  margin-bottom:20px;
+  margin-bottom:15px;
+}
+
+body.dark select{
+  background:#222;
+  color:#fff;
+  border-color:#333;
 }
 
 textarea{
   width:100%;
-  height:360px;
+  height:320px;
   border:none;
   outline:none;
   resize:none;
-  font-size:22px;
+  font-size:21px;
   background:transparent;
   color:inherit;
 }
@@ -172,29 +182,28 @@ textarea{
 }
 
 .swap{
-  width:90px;
-  height:90px;
+  width:80px;
+  height:80px;
   border:none;
   border-radius:50%;
   background:#111;
   color:white;
-  font-size:38px;
+  font-size:34px;
   cursor:pointer;
 }
 
 .buttons{
-  margin-top:25px;
+  margin-top:18px;
   display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+  gap:12px;
 }
 
 .btn{
   flex:1;
-  padding:18px;
+  padding:16px;
   border:none;
   border-radius:14px;
-  font-size:20px;
+  font-size:18px;
   font-weight:900;
   cursor:pointer;
 }
@@ -210,12 +219,17 @@ textarea{
 }
 
 .status{
-  margin-top:20px;
+  margin-top:15px;
   color:#666;
+  font-size:14px;
+}
+
+body.dark .status{
+  color:#bbb;
 }
 
 .history{
-  margin-top:30px;
+  margin-top:25px;
   border:2px solid #ddd;
   border-radius:20px;
   padding:20px;
@@ -230,16 +244,16 @@ body.dark .history{
 }
 
 .history-item{
-  padding:12px;
+  padding:10px;
   border-bottom:1px solid #ddd;
-  font-size:15px;
+  font-size:14px;
 }
 
 .info{
-  margin-top:30px;
+  margin-top:25px;
   border:2px solid #ddd;
   border-radius:20px;
-  padding:25px;
+  padding:20px;
   line-height:1.9;
 }
 
@@ -252,7 +266,7 @@ body.dark .info{
 }
 
 .footer{
-  margin-top:40px;
+  margin-top:35px;
   text-align:center;
   color:#777;
   font-size:14px;
@@ -275,17 +289,15 @@ body.dark .info{
   color:#111;
   border-radius:20px;
   padding:30px;
-  max-height:80vh;
-  overflow:auto;
 }
 
 .popup-content h2{
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
 .popup-content button{
   margin-top:20px;
-  padding:14px 20px;
+  padding:14px 18px;
   border:none;
   border-radius:12px;
   background:#111;
@@ -293,34 +305,110 @@ body.dark .info{
   cursor:pointer;
 }
 
-@media(max-width:1000px){
-
-  .boxes{
-    grid-template-columns:1fr;
-  }
-
-  .middle{
-    transform:rotate(90deg);
-  }
-
-  textarea{
-    height:250px;
-  }
-}
+/* 모바일 최적화 */
 
 @media(max-width:700px){
 
-  .title{
-    font-size:38px;
+  header{
+    height:auto;
+    padding:12px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .logo{
+    font-size:24px;
   }
 
   .menu{
-    gap:8px;
+    width:100%;
   }
 
   .menu button{
+    flex:1;
+    font-size:11px;
+    padding:10px 5px;
+  }
+
+  .wrap{
+    padding:12px;
+  }
+
+  .title{
+    font-size:30px;
+    margin-bottom:5px;
+  }
+
+  .sub{
+    font-size:14px;
+    margin-bottom:18px;
+  }
+
+  .boxes{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .box{
+    padding:14px;
+    border-radius:18px;
+  }
+
+  textarea{
+    height:170px;
+    font-size:17px;
+  }
+
+  .middle{
+    transform:none;
+  }
+
+  .swap{
+    width:58px;
+    height:58px;
+    font-size:24px;
+  }
+
+  .buttons{
+    gap:10px;
+    margin-top:15px;
+  }
+
+  .btn{
+    padding:14px;
+    font-size:16px;
+  }
+
+  select{
+    padding:12px;
+    font-size:15px;
+  }
+
+  .history{
+    padding:14px;
+  }
+
+  .history h2{
+    font-size:18px;
+  }
+
+  .history-item{
+    font-size:13px;
+  }
+
+  .info{
+    padding:16px;
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .info h2{
+    font-size:22px;
+  }
+
+  .footer{
     font-size:12px;
-    padding:8px 10px;
   }
 }
 
@@ -343,7 +431,7 @@ hs번역웹
 </button>
 
 <button onclick="openPolicy()">
-개인정보처리방침
+개인정보
 </button>
 
 <button onclick="openTerms()">
@@ -442,10 +530,7 @@ onclick="copyText()"
 
 </div>
 
-<div
-class="status"
-id="status"
->
+<div class="status" id="status">
 준비 완료
 </div>
 
@@ -456,9 +541,7 @@ id="status"
 </h2>
 
 <div id="historyList">
-
 번역 기록이 없습니다.
-
 </div>
 
 </div>
@@ -470,48 +553,36 @@ hs번역웹 소개
 </h2>
 
 <p>
-
 hs번역웹은 다양한 언어를 쉽고 빠르게 번역할 수 있는 무료 AI 번역 웹사이트입니다.
-
 </p>
 
 <br>
 
 <p>
-
-모바일, 태블릿, PC 환경을 지원하며
-반응형 UI를 적용하여 다양한 기기에서 최적화된 화면을 제공합니다.
-
+모바일, 태블릿, PC 환경을 지원하며 반응형 UI를 제공합니다.
 </p>
 
 <br>
 
 <p>
-
 API 서버 상태에 따라 번역이 지연되거나 제한될 수 있습니다.
-
 </p>
 
 <br>
 
 <p>
-
 광고 문의 및 사이트 문의:
 hongtaegeongaebalja@gmail.com
-
 </p>
 
 </div>
 
 <div class="footer">
-
 © hs번역웹
-
 </div>
 
 </div>
 
-<!-- 개인정보처리방침 -->
 <div class="popup" id="policyPopup">
 
 <div class="popup-content">
@@ -521,11 +592,7 @@ hongtaegeongaebalja@gmail.com
 </h2>
 
 <p>
-
-hs번역웹은 별도의 회원가입 없이 사용할 수 있습니다.
-입력된 번역 내용은 저장되지 않으며
-서비스 개선 목적 외 다른 용도로 사용되지 않습니다.
-
+입력된 번역 내용은 저장되지 않습니다.
 </p>
 
 <button onclick="closePopup('policyPopup')">
@@ -536,7 +603,6 @@ hs번역웹은 별도의 회원가입 없이 사용할 수 있습니다.
 
 </div>
 
-<!-- 이용약관 -->
 <div class="popup" id="termsPopup">
 
 <div class="popup-content">
@@ -546,10 +612,7 @@ hs번역웹은 별도의 회원가입 없이 사용할 수 있습니다.
 </h2>
 
 <p>
-
-사용자는 본 서비스를 정상적인 범위 내에서 자유롭게 사용할 수 있습니다.
-불법적이거나 유해한 목적으로 사용할 수 없습니다.
-
+불법적인 용도로 서비스를 사용할 수 없습니다.
 </p>
 
 <button onclick="closePopup('termsPopup')">
